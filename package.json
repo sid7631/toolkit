@@ -1,0 +1,21 @@
+{
+  "name": "reactify_design",
+  "version": "1.0.0",
+  "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+  "main": "countReducer.js",
+  "dependencies": {
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node countReducer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://soumak19@bitbucket.org/sid7631/reactify_design.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/sid7631/reactify_design#readme"
+}
