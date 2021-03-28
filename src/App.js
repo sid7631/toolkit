@@ -4,19 +4,21 @@ import './App.css';
 import { BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import Components from './components';
 import Docs from './docs';
-import Count from './components/Count'
+import { Provider } from 'react-redux';
+import store from './store';
 function App() {
   return (
     //add provider here
+    <Provider store={store}>
     <Router>
       <div className="App">
         <Switch>
           <Route exact path='/' component={Docs} />
           <Route path='/components' component={Components} />
-          <Route path='/count' component={Count} />
         </Switch>
       </div>
     </Router>
+    </Provider>
   );
 }
 
