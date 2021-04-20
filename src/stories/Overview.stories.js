@@ -10,11 +10,15 @@ import store from '../store';
 export default {
     component:Overview,
     title:'Overview',
+    argTypes:{
+
+    },
     decorators:[
         (Story) => (
             <Provider story={Story()} />
         )
-    ]
+    ],
+    controls: { expanded: true },
 };
 
 const Template = args => <Overview {...args} />;
@@ -23,5 +27,5 @@ const Template = args => <Overview {...args} />;
 export const First = Template.bind({});
 
 First.args = {
-    count:1,
+
 }

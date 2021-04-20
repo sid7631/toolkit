@@ -5,7 +5,9 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import {count_increment, count_decrement} from '../actions/demoActions';
 
-
+/**
+ *  Overview of components
+ */
 function Overview({count, count_increment, count_decrement}) {
     return (
         <div>
@@ -27,8 +29,13 @@ const mapStateToProps = (state) => ({
 })
 
 Overview.propTypes = {
+    /** Count Value */
     count: PropTypes.number,
+
+    /** Function to increment the count */
     count_increment: PropTypes.func.isRequired,
+
+    /** Function to decrease the count */
     count_decrement: PropTypes.func.isRequired,
 };
 
