@@ -1,0 +1,44 @@
+# This is an example Starter pipeline configuration
+# Use a skeleton to build, test and deploy using manual and parallel steps
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: atlassian/default-image:2
+
+clone:
+  depth:  full
+
+definitions:
+    caches:
+      sonar: ~/.sonar/cache  # Caching SonarCloud artifacts will speed up your build
+    steps:
+        - step: &security-scan
+            name:  Security Scan
+            script:
+              #Run a security scan on sensitive data
+                -pipe:  atlassian/git-secrets-scan:0.4.3
+        - step: &build-test-sonarcloud
+            name: Build, test and analyze on SonarCloud
+            caches:
+              # See https://confluence.atlassian.com/bitbucket/caching-dependencies-895552876.html
+              - sonar
+            script:
+              # Build your project and run
+              - pipe: sonarsource/sonarcloud-scan:1.2.1
+        - step: &check-quality-gate-sonarcloud
+            name: Check the Quality Gate on SonarCloud
+            script:
+              - pipe: sonarsource/sonarcloud-quality-gate:0.1.4
+        - step: &deploy-dev
+            name:  Deploy dev
+            deployment: Development
+            image:  atlassian/default-image:2
+            script:
+                -echo:  "Deploy script here"
+                
+
+
+
+pipelines:
+    custom:
+      sonar-scan:
+        - step:  *build-test-sonarcloud
