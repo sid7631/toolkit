@@ -1,8 +1,9 @@
+#Disable autoscan in sonar cloud project
 name: Build
 on:
   push:
     branches:
-      - develop/dev
+      - develop/devs
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
