@@ -10,7 +10,7 @@ function App() {
   return (
     //add provider here
     <Provider store={store}>
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Switch>
           <Route exact path='/' component={Docs} />
