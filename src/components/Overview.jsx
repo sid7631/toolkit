@@ -3,7 +3,7 @@ import React from 'react'
 function Overview() {
     return (
         <div>
-            Components Overview
+            Components Overviews
         </div>
     )
 }
